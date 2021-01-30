@@ -1,0 +1,6 @@
+Country Population(millions)
+Australia 21.3
+Canada 33.5
+France 64.4
+Morocco 31.3
+Poland 38.5
