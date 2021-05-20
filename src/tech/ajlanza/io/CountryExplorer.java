@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CountryExplorer {
-    public List<Double> readFile(String path) {
-        List<Double> population = new ArrayList<>();
+    public List<Country> readFile(String path) {
+        List<Country> countries = new ArrayList<>();
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(path));
@@ -16,8 +16,9 @@ public class CountryExplorer {
             while ((line = br.readLine()) != null) {
                 if(line.trim().length() > 0) {
                     String[] tokens = line.split("\\s");
+                    String name = tokens[0];
                     double pop = Double.parseDouble(tokens[1]);
-                    population.add(pop);
+                    countries.add(new Country(name, pop));
                 }
             }
         } catch (IOException e) {
@@ -31,6 +32,6 @@ public class CountryExplorer {
                 }
              }
         }
-        return population;
+        return countries;
     }
 }
