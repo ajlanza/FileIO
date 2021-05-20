@@ -10,5 +10,7 @@ public class Main {
         for(Country c: population) {
             System.out.println(c);
         }
+        System.out.printf("Highest: %s %n", ce.findHighest(population));
+        System.out.printf("Lowest: %s", ce.findLowest(population));
     }
 }

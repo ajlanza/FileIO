@@ -34,4 +34,24 @@ public class CountryExplorer {
         }
         return countries;
     }
+
+    public Country findHighest(List<Country> countries) {
+        Country highest = new Country();
+        for(Country c: countries) {
+            if(c.getPopulation() > highest.getPopulation()) {
+                highest = c;
+            }
+        }
+        return highest;
+    }
+
+    public Country findLowest(List<Country> countries) {
+        Country lowest = new Country("", Double.POSITIVE_INFINITY);
+        for(Country c: countries) {
+            if(c.getPopulation() < lowest.getPopulation()) {
+                lowest = c;
+            }
+        }
+        return lowest;
+    }
 }
