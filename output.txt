@@ -1,0 +1,3 @@
+The country with the largest population is: France (64.40)
+The country with the lowest population is : Australia (21.30)
+The average population of all 5 countries is 37.80 millions

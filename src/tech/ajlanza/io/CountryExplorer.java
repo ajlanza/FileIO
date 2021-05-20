@@ -1,8 +1,6 @@
 package tech.ajlanza.io;
 
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,5 +51,33 @@ public class CountryExplorer {
             }
         }
         return lowest;
+    }
+
+    public double findAverage(List<Country> countries) {
+        double sum = 0;
+        for(Country c: countries) {
+            sum = sum + c.getPopulation();
+        }
+        return sum / countries.size();
+    }
+
+    public void writeFile(List<Country> countries) {
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(new BufferedWriter(new FileWriter("output.txt")));
+            Country highest = findHighest(countries);
+            Country lowest = findLowest(countries);
+            double average = findAverage(countries);
+
+            out.printf("The country with the largest population is: %s\n", highest);
+            out.printf("The country with the lowest population is : %s\n", lowest);
+            out.printf("The average population of all %d countries is %.2f millions\n", countries.size(), average);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if(out != null) {
+                out.close();
+            }
+        }
     }
 }
